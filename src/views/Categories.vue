@@ -1,34 +1,34 @@
 <template>
-    <div>
-        <form @submit.prevent="addCategory">
-            <input v-model="newCategory.name" placeholder="Nom" required />
-            <textarea v-model="newCategory.description" placeholder="Description" required></textarea>
-            <button type="submit">Ajouter une catégorie</button>
-        </form>
+  <div>
+    <form @submit.prevent="addCategory" class="flex flex-col items-center mb-10 mt-10">
+      <input v-model="newCategory.name" placeholder="Nom" required class="mb-4 p-4 border border-gray-300 rounded-lg font-sans text-base" />
+      <textarea v-model="newCategory.description" placeholder="Description" required class="mb-4 p-4 border border-gray-300 rounded-lg font-sans text-base"></textarea>
+      <button type="submit" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg font-sans text-white font-bold">Ajouter une catégorie</button>
+    </form>
 
-        <ul>
-            <li v-for="category in categories" :key="category.id">
-                <div class="content">
-                    <div v-if="category.id !== editedCategoryId">
-                        <h3>{{ category.name }}</h3>
-                        <p>{{ category.description }}</p>
-                        <button @click="editCategory(category.id)">Modifier</button>
-                        <button @click="deleteCategory(category.id)">Supprimer</button>
-                        <button>
-                            <router-link :to="`/categories/${category.id}/`">Voir</router-link>
-                        </button>
-                    </div>
+    <ul class="flex justify-center flex-wrap list-none p-0">
+      <li v-for="category in categories" :key="category.id" class="border border-gray-300 w-2/5 rounded-lg p-8 m-5 relative">
+        <div class="content">
+          <div v-if="category.id !== editedCategoryId">
+            <h3 class="mb-4 text-lg font-bold">{{ category.name }}</h3>
+            <p class="mb-4 text-base">{{ category.description }}</p>
+            <button @click="editCategory(category.id)" class="bg-yellow-500 hover:bg-yellow-700 text-black py-2 px-4 rounded-lg font-sans text-white font-bold">Modifier</button>
+            <button @click="deleteCategory(category.id)" class="bg-red-500 hover:bg-red-700 text-black py-2 px-4 rounded-lg font-sans text-white font-bold">Supprimer</button>
+            <button>
+              <router-link :to="`/categories/${category.id}/`" class="bg-blue-500 hover:bg-blue-700 text-black py-2 px-4 rounded-lg font-sans text-white font-bold">Voir</router-link>
+            </button>
+          </div>
 
-                    <form v-else @submit.prevent="updateCategory">
-                        <input v-model="editedCategory.name" placeholder="Nom" required />
-                        <textarea v-model="editedCategory.description" placeholder="Description" required></textarea>
-                        <button type="submit">Enregistrer</button>
-                        <button @click="cancelEdit">Annuler</button>
-                    </form>
-                </div>
-            </li>
-        </ul>
-    </div>
+          <form v-else @submit.prevent="updateCategory" class="flex flex-col items-center">
+            <input v-model="editedCategory.name" placeholder="Nom" required class="mb-4 p-4 border border-gray-300 rounded-lg font-sans text-base" />
+            <textarea v-model="editedCategory.description" placeholder="Description" required class="mb-4 p-4 border border-gray-300 rounded-lg font-sans text-base"></textarea>
+            <button type="submit" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg font-sans text-base">Enregistrer</button>
+            <button @click="cancelEdit" class="bg-gray-300 hover:bg-gray-400 text-black py-2 px-4 rounded-lg font-sans text-base">Annuler</button>
+          </form>
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -111,91 +111,4 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-/* Styles de base */
-form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-input,
-textarea {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-}
-
-button {
-    cursor: pointer;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-button[type="submit"] {
-    background-color: #4caf50;
-    color: #fff;
-}
-
-button[type="submit"]:hover {
-    background-color: #45a049;
-}
-
-button:not([type="submit"]) {
-    background-color: #f1f1f1;
-    margin-right: 5px;
-}
-
-button:not([type="submit"]):hover {
-    background-color: #ddd;
-}
-
-ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    border: 1px solid #ccc;
-    width: 40%;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 10px 10px 20px;
-    position: relative;
-    height: 10%;
-}
-
-h3, p {
-    margin-bottom: 10px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    form {
-        width: 100%;
-    }
-
-    input,
-    textarea {
-        font-size: 14px;
-    }
-
-    button {
-        font-size: 14px;
-    }
-}
-</style>
 
