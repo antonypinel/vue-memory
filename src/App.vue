@@ -9,6 +9,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <div class="flex">
           <RouterLink to="/" class="font-bold flex items-center text-white hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium ml-auto">Home</RouterLink>
           <RouterLink to="/about" class=" font-bold flex items-center text-white hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium ml-auto">About</RouterLink>
+          <RouterLink to="/revision" class=" font-bold flex items-center text-white hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium ml-auto">Revision</RouterLink>
         </div>
       </nav>
     </div>
