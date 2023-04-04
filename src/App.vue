@@ -16,6 +16,12 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
+
+/* Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Réinitialisation de base et polices */
 * {
     margin: 0;
