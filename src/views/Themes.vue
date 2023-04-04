@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="container mx-auto px-4 lg:px-0">
-      <h1 class="text-3xl font-bold">{{ category.name }}</h1>
-      <p class="mt-2">{{ category.description }}</p>
+      <h1 class="text-3xl font-bold overflow-y-auto h-10">{{ category.name }}</h1>
+      <p class="mt-2 overflow-y-auto h-10">{{ category.description }}</p>
       <button
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
           @click="goBack"
@@ -40,7 +40,7 @@
       >
         <div class="content">
           <div v-if="theme.id !== editedThemeId">
-            <h3 class="text-xl font-bold mb-2">{{ theme.name }}</h3>
+            <h3 class="text-xl font-bold mb-2 overflow-y-auto h-10">{{ theme.name }}</h3>
             <button
                 class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2"
                 @click="editTheme(theme.id)"

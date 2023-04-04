@@ -10,8 +10,8 @@
       <li v-for="category in categories" :key="category.id" class="border border-gray-300 rounded-lg p-8 relative">
         <div class="content">
           <div v-if="category.id !== editedCategoryId">
-            <h3 class="mb-4 text-lg font-bold">{{ category.name }}</h3>
-            <p class="mb-4 text-base">{{ category.description }}</p>
+            <h3 class="mb-4 text-lg font-bold overflow-y-auto h-10">{{ category.name }}</h3>
+            <p class="mb-4 text-base overflow-y-auto h-10">{{ category.description }}</p>
             <div class="flex flex-col sm:flex-row justify-center sm:justify-end sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
               <button @click="editCategory(category.id)" class="bg-yellow-500 hover:bg-yellow-700 text-black py-2 px-4 rounded-lg font-bold text-white">Modifier</button>
               <button @click="deleteCategory(category.id)" class="bg-red-500 hover:bg-red-700 text-black py-2 px-4 rounded-lg font-bold text-white">Supprimer</button>

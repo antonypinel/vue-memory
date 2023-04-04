@@ -21,8 +21,8 @@
       <li v-for="card in theme.cards" :key="card.id" class="my-4">
         <div class="content border border-gray-400 rounded-md p-2">
           <div v-if="card.id !== editedCardId">
-            <h3 class="text-lg">{{ card.recto }}</h3>
-            <p class="my-2">{{ card.verso }}</p>
+            <h3 class="text-lg overflow-y-auto h-10">{{ card.recto }}</h3>
+            <p class="my-2 overflow-y-auto h-10">{{ card.verso }}</p>
             <div class="flex justify-end">
               <button @click="editCard(card.id)" class="bg-blue-500 text-white rounded-md px-4 py-2 mr-2 hover:bg-blue-700">Modifier</button>
               <button @click="deleteCard(card.id)" class="bg-red-500 text-white rounded-md px-4 py-2 hover:bg-red-700">Supprimer</button>
