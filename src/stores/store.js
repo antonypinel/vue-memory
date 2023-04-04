@@ -8,9 +8,9 @@ export const useStore = defineStore('store', {
   actions: {
     // Categories
     addCategory(category) {
-      category.id = Date.now();
-      category.themes = [];
-      this.categories.push(category);
+        category.id = Date.now();
+        category.themes = [];
+        this.categories.push(category);
     },
     updateCategory(updatedCategory) {
       const index = this.categories.findIndex(category => category.id === updatedCategory.id);

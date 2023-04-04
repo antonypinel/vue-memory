@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container mx-auto">
+    <div class="container mx-auto px-4 lg:px-0">
       <h1 class="text-3xl font-bold">{{ category.name }}</h1>
       <p class="mt-2">{{ category.description }}</p>
       <button
@@ -12,7 +12,7 @@
       <hr class="my-6" />
     </div>
 
-    <div class="container mx-auto">
+    <div class="container mx-auto px-4 lg:px-0">
       <h2 class="text-2xl font-bold">Ajouter un thème</h2>
       <form class="flex flex-col mt-4" @submit.prevent="addTheme">
         <input
@@ -31,12 +31,12 @@
       <hr class="my-6" />
     </div>
 
-    <h2 class="text-2xl font-bold container mx-auto">Thèmes</h2>
+    <h2 class="text-2xl font-bold container mx-auto px-4 lg:px-0">Thèmes</h2>
     <ul class="flex flex-wrap justify-center mt-4">
       <li
           v-for="theme in category.themes"
           :key="theme.id"
-          class="border border-gray-300 rounded-md p-4 m-2 w-3/12 relative"
+          class="border border-gray-300 rounded-md p-4 m-2 w-full lg:w-3/12 relative"
       >
         <div class="content">
           <div v-if="theme.id !== editedThemeId">
@@ -69,18 +69,20 @@
                 placeholder="Nom"
                 required
             />
-            <button
-                class="font-bold text-white bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
-                type="submit"
-            >
-              Enregistrer
-            </button>
+            <div class="flex flex-row justify-center items-center">
+              <button
+                  class="font-bold text-white bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
+                  type="submit"
+              >
+                Enregistrer
+              </button>
             <button
                 class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                 @click="cancelEdit"
             >
               Annuler
             </button>
+            </div>
           </form>
         </div>
       </li>

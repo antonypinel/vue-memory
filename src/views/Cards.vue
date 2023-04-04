@@ -1,47 +1,51 @@
 <template>
-    <div>
-        <h1>{{ theme.name }}</h1>
-        <button @click="goBack()">Retour</button>
-        <hr />
-        <h2>Ajouter une carte</h2>
-        <form @submit.prevent="addCard">
-            <div>
-                <label>Recto</label>
-                <input type="text" v-model="newCard.recto" />
+  <div class="max-w-3xl mx-auto px-4">
+    <h1 class="text-3xl mt-8 mb-4">{{ theme.name }}</h1>
+    <button @click="goBack()" class="my-4 py-2 px-4 rounded-md border border-blue-500 bg-blue-500 hover:bg-blue-700 text-white">Retour</button>
+    <hr class="my-4" />
+    <h2 class="text-xl">Ajouter une carte</h2>
+    <form @submit.prevent="addCard">
+      <div class="my-2">
+        <label class="block">Recto</label>
+        <input type="text" v-model="newCard.recto" class="block w-full border border-gray-400 rounded-md p-2" required/>
+      </div>
+      <div class="my-2">
+        <label class="block">Verso</label>
+        <input type="text" v-model="newCard.verso" class="block w-full border border-gray-400 rounded-md p-2" required/>
+      </div>
+      <button type="submit" class="my-4 py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-700">Ajouter une carte</button>
+    </form>
+    <hr class="my-4" />
+    <h2 class="text-xl">Cartes</h2>
+    <ul>
+      <li v-for="card in theme.cards" :key="card.id" class="my-4">
+        <div class="content border border-gray-400 rounded-md p-2">
+          <div v-if="card.id !== editedCardId">
+            <h3 class="text-lg">{{ card.recto }}</h3>
+            <p class="my-2">{{ card.verso }}</p>
+            <div class="flex justify-end">
+              <button @click="editCard(card.id)" class="bg-blue-500 text-white rounded-md px-4 py-2 mr-2 hover:bg-blue-700">Modifier</button>
+              <button @click="deleteCard(card.id)" class="bg-red-500 text-white rounded-md px-4 py-2 hover:bg-red-700">Supprimer</button>
             </div>
-            <div>
-                <label>Verso</label>
-                <input type="text" v-model="newCard.verso" />
+          </div>
+          <form v-else @submit.prevent="updateCard">
+            <div class="my-2">
+              <label class="block">Recto</label>
+              <input type="text" v-model="editedCard.recto" class="block w-full border border-gray-400 rounded-md p-2" />
             </div>
-            <button type="submit">Ajouter une carte</button>
-        </form>
-        <hr />
-        <h2>Cartes</h2>
-        <ul>
-            <li v-for="card in theme.cards" :key="card.id">
-                <div class="content">
-                    <div v-if="card.id !== editedCardId">
-                        <h3>{{ card.recto }}</h3>
-                        <p>{{ card.verso }}</p>
-                        <button @click="editCard(card.id)">Modifier</button>
-                        <button @click="deleteCard(card.id)">Supprimer</button>
-                    </div>
-                    <form v-else @submit.prevent="updateCard">
-                        <div>
-                            <label>Recto</label>
-                            <input type="text" v-model="editedCard.recto" />
-                        </div>
-                        <div>
-                            <label>Verso</label>
-                            <input type="text" v-model="editedCard.verso" />
-                        </div>
-                        <button type="submit" class="font-bold text-white">Enregistrer</button>
-                        <button @click="cancelEdit" class="font-bold text-white">Annuler</button>
-                    </form>
-                </div>
-            </li>
-        </ul>
-    </div>
+            <div class="my-2">
+              <label class="block">Verso</label>
+              <input type="text" v-model="editedCard.verso" class="block w-full border border-gray-400 rounded-md p-2" />
+            </div>
+            <div class="flex justify-end">
+              <button type="submit" class="bg-green-500 text-white rounded-md px-4 py-2 mr-2 hover:bg-green-700">Enregistrer</button>
+              <button @click="cancelEdit" class="bg-gray-500 text-white rounded-md px-4 py-2 hover:bg-gray-700">Annuler</button>
+            </div>
+          </form>
+        </div>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -127,92 +131,4 @@ export default defineComponent({
     },
 });
 </script>
-
-<style scoped>
-/* Styles de base */
-form {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-input,
-textarea {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-}
-
-button {
-    cursor: pointer;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-button[type="submit"] {
-    background-color: #4caf50;
-    color: #fff;
-}
-
-button[type="submit"]:hover {
-    background-color: #45a049;
-}
-
-button:not([type="submit"]) {
-    background-color: #f1f1f1;
-    margin-right: 5px;
-}
-
-button:not([type="submit"]):hover {
-    background-color: #ddd;
-}
-
-ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    border: 1px solid #ccc;
-    width: 40%;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 10px 10px 20px;
-    position: relative;
-    height: 10%;
-}
-
-h3, p {
-    margin-bottom: 10px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    form {
-        width: 100%;
-    }
-
-    input,
-    textarea {
-        font-size: 14px;
-    }
-
-    button {
-        font-size: 14px;
-    }
-}
-</style>
-
 
