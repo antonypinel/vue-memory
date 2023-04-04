@@ -70,7 +70,7 @@
                 required
             />
             <button
-                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
+                class="font-bold text-white bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
                 type="submit"
             >
               Enregistrer
@@ -166,10 +166,3 @@ export default defineComponent({
     }
 })
 </script>
-
-<style>
-  .container {
-    margin-top: 10px;
-    max-width: 900px;
-  }
-</style>

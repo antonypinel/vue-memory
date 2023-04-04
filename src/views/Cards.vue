@@ -35,8 +35,8 @@
                             <label>Verso</label>
                             <input type="text" v-model="editedCard.verso" />
                         </div>
-                        <button type="submit">Enregistrer</button>
-                        <button @click="cancelEdit" class="text-white font-bold">Annuler</button>
+                        <button type="submit" class="font-bold text-white">Enregistrer</button>
+                        <button @click="cancelEdit" class="font-bold text-white">Annuler</button>
                     </form>
                 </div>
             </li>
