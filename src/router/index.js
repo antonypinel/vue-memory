@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Categories from '@/views/Categories.vue';
 import Themes from "@/views/Themes.vue";
 import Cards from "@/views/Cards.vue";
+import Revision from "@/views/Revision.vue";
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/categories/:id/themes/:themeId/',
     name: 'cards',
     component: Cards,
+  },
+  {
+    path: '/revision',
+    name: 'revision',
+    component: Revision,
   },
   {
     path: '/about',

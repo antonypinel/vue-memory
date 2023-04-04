@@ -51,6 +51,8 @@ export const useStore = defineStore('store', {
       const theme = this.getThemeById(categoryId, themeId);
       if (theme) {
         card.id = Date.now();
+        card.level = 1;
+        card.lastRevisionDate = null;
         if (!theme.cards) {
           theme.cards = [];
         }
@@ -73,6 +75,20 @@ export const useStore = defineStore('store', {
       }
     },
 
+    // Revision
+    updateCardLevel(categoryId, themeId, cardId, newLevel) {
+      const card = this.getCardById(categoryId, themeId, cardId);
+      if (card) {
+        card.level = newLevel;
+      }
+    },
+    updateCardLastRevisionDate(categoryId, themeId, cardId, newDate) {
+      const card = this.getCardById(categoryId, themeId, cardId);
+      if (card) {
+        card.lastRevisionDate = newDate;
+      }
+    },
+
     // Getters
     getCategoryById(id) {
       return this.categories.find(category => category.id === id);
@@ -83,6 +99,11 @@ export const useStore = defineStore('store', {
         return category.themes.find(theme => theme.id === themeId);
       }
       return null;
+    },
+    getAllThemes() {
+      return this.categories.reduce((allThemes, category) => {
+        return allThemes.concat(category.themes);
+      }, []);
     },
     getCardById(categoryId, themeId, cardId) {
       const theme = this.getThemeById(categoryId, themeId);
