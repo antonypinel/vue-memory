@@ -81,6 +81,12 @@ export default {
         const revisionInterval = ref(null);
 
         function startRevision() {
+            const selectedThemesHaveCards = selectedThemes.value && selectedThemes.value.every(theme => theme.cards && theme.cards.length > 0);
+            if (!selectedThemesHaveCards) {
+                alert("Aucun des thèmes sélectionnés n'a de carte.");
+                selectedThemes.value = [];
+                return;
+            }
             revisionStarted.value = true;
             revisionCards.value = getRevisionCards();
         }
