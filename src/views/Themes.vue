@@ -1,99 +1,99 @@
 <template>
-  <div>
-    <div class="container mx-auto px-4 lg:px-0">
-      <h1 class="text-3xl font-bold overflow-y-auto h-10">{{ category.name }}</h1>
-      <p class="mt-2 overflow-y-auto h-10">{{ category.description }}</p>
-      <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
-          @click="goBack"
-      >
-        Retour
-      </button>
-      <hr class="my-6" />
-    </div>
-
-    <div class="container mx-auto px-4 lg:px-0">
-      <h2 class="text-2xl font-bold">Ajouter un thème</h2>
-      <form class="flex flex-col mt-4" @submit.prevent="addTheme">
-        <input
-            class="border border-gray-300 p-2 rounded-md mb-2"
-            v-model="newTheme.name"
-            placeholder="Nom"
-            required
-        />
-        <button
-            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-            type="submit"
-        >
-          Ajouter un thème
-        </button>
-      </form>
-      <hr class="my-6" />
-    </div>
-
-    <h2 class="text-2xl font-bold container mx-auto px-4 lg:px-0">Thèmes</h2>
-    <ul class="flex flex-wrap justify-center mt-4">
-      <li
-          v-for="theme in category.themes"
-          :key="theme.id"
-          class="border border-gray-300 rounded-md p-4 m-2 w-full lg:w-3/12 relative"
-      >
-        <div class="content">
-          <div v-if="theme.id !== editedThemeId">
-            <h3 class="text-xl font-bold mb-2 overflow-y-auto h-10">{{ theme.name }}</h3>
+    <div>
+        <div class="container mx-auto px-4 lg:px-0">
+            <h1 class="text-3xl font-bold overflow-y-auto h-10">{{ category.name }}</h1>
+            <p class="mt-2 overflow-y-auto h-10">{{ category.description }}</p>
             <button
-                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2"
-                @click="editTheme(theme.id)"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+                    @click="goBack"
             >
-              Modifier
+                Retour
             </button>
-            <button
-                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2"
-                @click="deleteTheme(theme.id)"
-            >
-              Supprimer
-            </button>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-              <router-link
-                  :to="'/categories/' + categoryId + '/themes/' + theme.id"
-                  class="text-white"
-              >
-                Voir
-              </router-link>
-            </button>
-          </div>
-          <form v-else class="flex flex-col mt-4" @submit.prevent="updateTheme">
-            <input
-                class="border border-gray-300 p-2 rounded-md mb-2"
-                v-model="editedTheme.name"
-                placeholder="Nom"
-                required
-            />
-            <div class="flex flex-row justify-center items-center">
-              <button
-                  class="font-bold text-white bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
-                  type="submit"
-              >
-                Enregistrer
-              </button>
-            <button
-                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                @click="cancelEdit"
-            >
-              Annuler
-            </button>
-            </div>
-          </form>
+            <hr class="my-6"/>
         </div>
-      </li>
-    </ul>
-  </div>
+
+        <div class="container mx-auto px-4 lg:px-0">
+            <h2 class="text-2xl font-bold">Ajouter un thème</h2>
+            <form class="flex flex-col mt-4" @submit.prevent="addTheme">
+                <input
+                        class="border border-gray-300 p-2 rounded-md mb-2"
+                        v-model="newTheme.name"
+                        placeholder="Nom"
+                        required
+                />
+                <button
+                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                        type="submit"
+                >
+                    Ajouter un thème
+                </button>
+            </form>
+            <hr class="my-6"/>
+        </div>
+
+        <h2 class="text-2xl font-bold container mx-auto px-4 lg:px-0">Thèmes</h2>
+        <ul class="flex flex-wrap justify-center mt-4">
+            <li
+                    v-for="theme in category.themes"
+                    :key="theme.id"
+                    class="border border-gray-300 rounded-md p-4 m-2 w-full lg:w-3/12 relative"
+            >
+                <div class="content">
+                    <div v-if="theme.id !== editedThemeId">
+                        <h3 class="text-xl font-bold mb-2 overflow-y-auto h-10">{{ theme.name }}</h3>
+                        <button
+                                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2"
+                                @click="editTheme(theme.id)"
+                        >
+                            Modifier
+                        </button>
+                        <button
+                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2"
+                                @click="deleteTheme(theme.id)"
+                        >
+                            Supprimer
+                        </button>
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            <router-link
+                                    :to="'/categories/' + categoryId + '/themes/' + theme.id"
+                                    class="text-white"
+                            >
+                                Voir
+                            </router-link>
+                        </button>
+                    </div>
+                    <form v-else class="flex flex-col mt-4" @submit.prevent="updateTheme">
+                        <input
+                                class="border border-gray-300 p-2 rounded-md mb-2"
+                                v-model="editedTheme.name"
+                                placeholder="Nom"
+                                required
+                        />
+                        <div class="flex flex-row justify-center items-center">
+                            <button
+                                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-2"
+                                    type="submit"
+                            >
+                                Enregistrer
+                            </button>
+                            <button
+                                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                                    @click="cancelEdit"
+                            >
+                                Annuler
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { useStore } from '@/stores/store'
+import {defineComponent, ref} from 'vue'
+import {useRoute, useRouter} from 'vue-router'
+import {useStore} from '@/stores/store'
 
 export default defineComponent({
     setup() {
