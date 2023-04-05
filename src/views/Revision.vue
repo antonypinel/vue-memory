@@ -54,6 +54,7 @@
             <div v-else>
                 <h2>Révision terminée</h2>
                 <button @click="resetRevision">Réviser à nouveau</button>
+                <button @click="scheduleDailyReminder">Planifier un rappel quotidien</button>
                 <button>
                     <router-link :to="`/`">Retourner à l'accueil</router-link>
                 </button>
@@ -65,6 +66,7 @@
 <script>
 import {computed, ref} from 'vue';
 import {useStore} from '@/stores/store';
+import {format} from 'date-fns';
 
 export default {
     name: 'Revision',
@@ -177,6 +179,42 @@ export default {
             return revisionCards.value[currentCardIndex.value] || null;
         });
 
+        function scheduleDailyReminder() {
+            if (Notification.permission !== 'granted') {
+                Notification.requestPermission().then((permission) => {
+                    if (permission === 'granted') {
+                        console.log('Notification permission granted.');
+                        scheduleReminder();
+                    }
+                });
+            } else {
+                scheduleReminder();
+            }
+
+            function scheduleReminder() {
+                const now = new Date();
+                const reminderTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 10, 0, 0);
+                if (now.getTime() > reminderTime.getTime()) {
+                    reminderTime.setDate(reminderTime.getDate());
+                }
+                const selectedTime = window.prompt(
+                    'À quelle heure souhaitez-vous être notifié(e) chaque jour ? (h:min)',
+                    format(reminderTime, 'HH:mm')
+                );
+                if (selectedTime) {
+                    const [hour, minute] = selectedTime.split(':');
+                    reminderTime.setHours(parseInt(hour, 10));
+                    reminderTime.setMinutes(parseInt(minute, 10));
+                    const delay = reminderTime.getTime() - new Date().getTime();
+                    setInterval(() => {
+                        const notification = new Notification('Rappel quotidien', {
+                            body: `Il est ${selectedTime}, c'est l'heure de réviser tes cartes pour aujourd'hui !`,
+                        });
+                    }, delay);
+                }
+            }
+        }
+
         return {
             allThemes,
             selectedThemes,
@@ -188,6 +226,7 @@ export default {
             startRevision,
             resetRevision,
             cardAnswered,
+            scheduleDailyReminder,
         };
     },
 };
