@@ -195,7 +195,7 @@ export default {
                 const now = new Date();
                 const reminderTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 10, 0, 0);
                 if (now.getTime() > reminderTime.getTime()) {
-                    reminderTime.setDate(reminderTime.getDate());
+                    reminderTime.setDate(reminderTime.getDate() + 1);
                 }
                 const selectedTime = window.prompt(
                     'À quelle heure souhaitez-vous être notifié(e) chaque jour ? (h:min)',
