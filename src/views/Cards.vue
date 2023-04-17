@@ -1,23 +1,23 @@
 <template>
-    <div class="max-w-3xl mx-auto px-4">
+    <div class="container mx-auto px-4 lg:px-0">
         <h1 class="text-3xl mt-8 mb-4">{{ theme.name }}</h1>
         <button @click="goBack()"
-                class="my-4 py-2 px-4 rounded-md border border-blue-500 bg-blue-500 hover:bg-blue-700 text-white">Retour
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Retour
         </button>
         <hr class="my-4"/>
-        <h2 class="text-xl text-white font-bold">Ajouter une carte</h2>
+        <h2 class="text-2xl font-bold">Ajouter une carte</h2>
         <form @submit.prevent="addCard">
             <div class="my-2">
-                <label class="block">Recto</label>
-                <input type="text" v-model="newCard.recto" class="block w-full border border-gray-400 rounded-md p-2"
+                <input placeholder="Recto" type="text" v-model="newCard.recto"
+                       class="block w-full border border-gray-400 rounded-md p-2"
                        required/>
             </div>
             <div class="my-2">
-                <label class="block">Verso</label>
-                <input type="text" v-model="newCard.verso" class="block w-full border border-gray-400 rounded-md p-2"
+                <input placeholder="Verso" type="text" v-model="newCard.verso"
+                       class="block w-full border border-gray-400 rounded-md p-2"
                        required/>
             </div>
-            <button type="submit" class="my-4 py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-700">Ajouter
+            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Ajouter
                 une carte
             </button>
         </form>
@@ -31,10 +31,12 @@
                         <p class="my-2 overflow-y-auto h-10">{{ card.verso }}</p>
                         <div class="flex justify-end">
                             <button @click="editCard(card.id)"
-                                    class="bg-blue-500 text-white rounded-md px-4 py-2 mr-2 hover:bg-blue-700">Modifier
+                                    class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2">
+                                Modifier
                             </button>
                             <button @click="deleteCard(card.id)"
-                                    class="bg-red-500 text-white rounded-md px-4 py-2 hover:bg-red-700">Supprimer
+                                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2">
+                                Supprimer
                             </button>
                         </div>
                     </div>
@@ -55,7 +57,8 @@
                                 Enregistrer
                             </button>
                             <button @click="cancelEdit"
-                                    class="bg-gray-500 text-white rounded-md px-4 py-2 hover:bg-gray-700 font-bold text-white">Annuler
+                                    class="bg-gray-500 text-white rounded-md px-4 py-2 hover:bg-gray-700 font-bold text-white">
+                                Annuler
                             </button>
                         </div>
                     </form>

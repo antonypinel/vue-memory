@@ -13,7 +13,7 @@
         </div>
 
         <div class="container mx-auto px-4 lg:px-0">
-            <h2 class="text-2xl font-bold text-white">Ajouter un thème</h2>
+            <h2 class="text-2xl font-bold">Ajouter un thème</h2>
             <form class="flex flex-col mt-4" @submit.prevent="addTheme">
                 <input
                         class="border border-gray-300 p-2 rounded-md mb-2"
@@ -22,7 +22,7 @@
                         required
                 />
                 <button
-                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                        class="bg-green-500 rounded-lg hover:bg-green-700 text-white font-bold py-2 px-4"
                         type="submit"
                 >
                     Ajouter un thème
@@ -42,18 +42,18 @@
                     <div v-if="theme.id !== editedThemeId">
                         <h3 class="text-xl font-bold mb-2 overflow-y-auto h-10">{{ theme.name }}</h3>
                         <button
-                                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mr-2"
+                                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-lg mr-2"
                                 @click="editTheme(theme.id)"
                         >
                             Modifier
                         </button>
                         <button
-                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2"
+                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg mr-2"
                                 @click="deleteTheme(theme.id)"
                         >
                             Supprimer
                         </button>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
                             <router-link
                                     :to="'/categories/' + categoryId + '/themes/' + theme.id"
                                     class="text-white"
