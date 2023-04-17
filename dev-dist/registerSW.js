@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) navigator.serviceWorker.register('/vue-memory/dev-sw.js?dev-sw', { scope: '/vue-memory/', type: 'classic' })
