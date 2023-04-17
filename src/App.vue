@@ -9,15 +9,15 @@ import {RouterLink, RouterView} from 'vue-router'
                 <div class="flex">
                     <RouterLink to="/"
                                 class="flex items-center text-white hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium ml-auto">
-                        Home
+                        Accueil
                     </RouterLink>
+                  <RouterLink to="/revision"
+                              class="flex items-center text-white hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium ml-auto">
+                    Révision
+                  </RouterLink>
                     <RouterLink to="/about"
                                 class="flex items-center text-white hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium ml-auto">
-                        About
-                    </RouterLink>
-                    <RouterLink to="/revision"
-                                class="flex items-center text-white hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium ml-auto">
-                        Revision
+                        Règles
                     </RouterLink>
                 </div>
             </nav>

@@ -5,7 +5,7 @@
                 class="my-4 py-2 px-4 rounded-md border border-blue-500 bg-blue-500 hover:bg-blue-700 text-white">Retour
         </button>
         <hr class="my-4"/>
-        <h2 class="text-xl">Ajouter une carte</h2>
+        <h2 class="text-xl text-white font-bold">Ajouter une carte</h2>
         <form @submit.prevent="addCard">
             <div class="my-2">
                 <label class="block">Recto</label>
@@ -51,11 +51,11 @@
                         </div>
                         <div class="flex justify-end">
                             <button type="submit"
-                                    class="bg-green-500 text-white rounded-md px-4 py-2 mr-2 hover:bg-green-700">
+                                    class="bg-green-500 text-white font-bold rounded-md px-4 py-2 mr-2 hover:bg-green-700">
                                 Enregistrer
                             </button>
                             <button @click="cancelEdit"
-                                    class="bg-gray-500 text-white rounded-md px-4 py-2 hover:bg-gray-700">Annuler
+                                    class="bg-gray-500 text-white rounded-md px-4 py-2 hover:bg-gray-700 font-bold text-white">Annuler
                             </button>
                         </div>
                     </form>

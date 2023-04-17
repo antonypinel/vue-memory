@@ -7,7 +7,7 @@
                       class="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg text-base font-sans"
                       rows="3"></textarea>
             <button type="submit"
-                    class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg font-bold text-base w-full">
+                    class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg font-bold text-base w-full">
                 Ajouter une catégorie
             </button>
         </form>

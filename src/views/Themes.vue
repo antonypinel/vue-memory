@@ -13,7 +13,7 @@
         </div>
 
         <div class="container mx-auto px-4 lg:px-0">
-            <h2 class="text-2xl font-bold">Ajouter un thème</h2>
+            <h2 class="text-2xl font-bold text-white">Ajouter un thème</h2>
             <form class="flex flex-col mt-4" @submit.prevent="addTheme">
                 <input
                         class="border border-gray-300 p-2 rounded-md mb-2"
