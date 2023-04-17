@@ -63,9 +63,6 @@
             <div v-else class="bg-white rounded-lg shadow-md p-8 mx-auto max-w-xl">
                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-center">
                     <h1 class="font-bold m-3">Révision terminée !</h1>
-                    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mb-4 sm:mr-4"
-                            @click="resetRevision">Réviser à nouveau
-                    </button>
                     <button class="bg-yellow-400 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded mb-4 sm:mr-4"
                             @click="scheduleDailyReminder">Planifier un rappel quotidien
                     </button>
@@ -106,11 +103,6 @@ export default {
             }
             revisionStarted.value = true;
             revisionCards.value = getRevisionCards();
-        }
-
-        function resetRevision() {
-            revisionStarted.value = false;
-            currentCardIndex.value = 0;
         }
 
         function getRevisionCards() {
@@ -253,7 +245,6 @@ export default {
             currentCard,
             showFront,
             startRevision,
-            resetRevision,
             cardAnswered,
             areAllCardsReviewedToday,
             scheduleDailyReminder,
