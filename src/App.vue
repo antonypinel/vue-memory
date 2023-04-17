@@ -16,10 +16,6 @@ import {RouterLink, RouterView} from 'vue-router'
                               class="flex items-center text-white hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium ml-auto">
                     Révision
                   </RouterLink>
-                    <RouterLink to="/about"
-                                class="flex items-center text-white hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium ml-auto">
-                        Règles
-                    </RouterLink>
                 </div>
             </nav>
         </div>

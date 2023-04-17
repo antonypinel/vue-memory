@@ -25,11 +25,6 @@ const routes = [
     name: 'revision',
     component: Revision,
   },
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import('../views/AboutView.vue'),
-  },
 ];
 
 const router = createRouter({
