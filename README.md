@@ -6,7 +6,7 @@ L'objectif de ce projet était de concevoir et développer une application de m�
 Le principe de la répétition espacée est détaillé ici :
 https://ncase.me/remember/fr.html
 
-Accéder à l'application en ligne :
+Accéder à l'application en ligne : https://antonypinel.github.io/vue-memory/
 
 ## Auteurs
 
