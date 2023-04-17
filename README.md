@@ -1,29 +1,74 @@
-# vue-memory
 
-This template should help get you started developing with Vue 3 in Vite.
+# Vue Memory
 
-## Recommended IDE Setup
+L'objectif de ce projet était de concevoir et développer une application de mémorisation basée sur la répétition espacée en utilisant Vue 3, vue-router et Pinia. Nous avons également décidé d'utiliser Tailwind en tant que framework CSS.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+Le principe de la répétition espacée est détaillé ici :
+https://ncase.me/remember/fr.html
 
-## Customize configuration
+Accéder à l'application en ligne : https://antonypinel.github.io/vue-memory/
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## Auteurs
 
-## Project Setup
+- [Antony PINEL](https://www.github.com/antonypinel)
+- [Jonathan JAREMCZUK](https://www.github.com/Orion009)
 
-```sh
-npm install
+
+## Architecture
+
+```
+src/  
+├── public/   
+│   └── serviceworker.js              
+├── views/                  
+│   ├── Categories.vue          
+│   ├── Themes.vue              
+│   ├── Cards.vue               
+│   └── Revision.vue            
+├── router/                     
+│   └── index.js 
+├── stores/         
+│   └── store.js        
+├── App.vue                     
+├── registerServiceWorker.js 
+└── main.js 
 ```
 
-### Compile and Hot-Reload for Development
+## Fonctionnalités
 
-```sh
-npm run dev
+- L'application permet de réviser des thèmes.
+- Les thèmes contiennent des cartes de révision avec recto et verso (texte et/ou élément multimédia).
+- Les thèmes peuvent être regroupés par catégorie créée par l'utilisateur.
+- L'utilisateur peut créer des thèmes et des cartes de révision pour chaque thème.
+- L'utilisateur peut choisir le nombre de niveaux et de nouvelles cartes vues chaque jour pour chaque thème.
+- La révision commence par le niveau le plus haut avec le nombre de nouvelles cartes choisies, puis niveau 1.
+- L'application peut configurer un rappel quotidien si l'utilisateur accepte les notifications du navigateur.
+- L'application est responsive et fonctionne hors-ligne.
+
+
+## Tester le projet en local
+
+Cloner le projet :
+
+```bash
+  git clone https://link-to-project
 ```
 
-### Compile and Minify for Production
+Aller au dossier contenant le projet :
 
-```sh
-npm run build
+```bash
+  cd my-project
 ```
+
+Installer les dépendances :
+
+```bash
+  npm install
+```
+
+Démarrer le serveur local :
+
+```bash
+  npm run dev
+```
+
