@@ -50,7 +50,7 @@
                     <h2 class="text-2xl md:text-3xl">{{ currentCard.verso }}</h2>
                     <div class="mt-4 md:mt-8">
                         <button @click.stop="cardAnswered(true)"
-                                class="bg-green-500 text-white rounded-md py-2 px-4 mr-2 md:mr-4 hover:bg-green-700 transition-colors duration-300">
+                                class="bg-green-500 text-white rounded-md py-2 px-4 mr-2 md:mr-4 hover:bg-green-700 transition-colors duration-300 p-3">
                             Oui, je me souviens
                         </button>
                         <button @click.stop="cardAnswered(false)"
