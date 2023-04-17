@@ -1,0 +1,21 @@
+{
+  "name": "Memory",
+  "short_name": "M_PWA",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "PWA_DESC",
+  "icons": [
+    {
+      "src": "icon-memory.ico.ico",
+      "sizes": "48x48",
+      "type": "image/ico"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=cheeaun.hackerweb"
+    }
+  ]
+}

@@ -1,8 +1,8 @@
 <template>
     <div class="revision">
         <h1 class="text-3xl md:text-4xl">Révision</h1>
-        <div v-if="!revisionStarted">
-            <h2 class="text-xl md:text-2xl mt-4 md:mt-8">Choisissez les thèmes</h2>
+        <div v-if="!revisionStarted" class="p-6">
+            <h2 class="text-xl md:text-2xl mt-4 md:mt-8 ">Choisissez les thèmes</h2>
             <div v-for="theme in allThemes" :key="theme.id" class="theme">
                 <input
                         :id="theme.id"
@@ -156,7 +156,7 @@ export default {
             }
             const newLevel = remembered
                 ? Math.min(currentCard.level + 1, numberOfLevels.value)
-                : Math.max(currentCard.level - 1, 1);
+                : Math.max(currentCard.level = 1, 1);
 
             store.updateCardLevel(
                 currentCard.categoryId,
