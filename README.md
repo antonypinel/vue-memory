@@ -15,9 +15,7 @@ https://ncase.me/remember/fr.html
 ## Architecture
 
 ```
-src/  
-├── public/   
-│   └── serviceworker.js              
+src/               
 ├── views/                  
 │   ├── Categories.vue          
 │   ├── Themes.vue              
@@ -28,7 +26,6 @@ src/
 ├── stores/         
 │   └── store.js        
 ├── App.vue                     
-├── registerServiceWorker.js 
 └── main.js 
 ```
 
@@ -70,3 +67,8 @@ Démarrer le serveur local :
   npm run dev
 ```
 
+Tester le projet en mode "build" :
+
+```bash
+  npm run build & npx http-server dist
+```
