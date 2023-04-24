@@ -41,19 +41,7 @@ src/
 - L'application est responsive et fonctionne hors-ligne en mode "build".
 
 
-## Tester le projet en local
-
-Cloner le projet :
-
-```bash
-  git clone [https://github.com/antonypinel/vue-memory.git]
-```
-
-Aller au dossier contenant le projet :
-
-```bash
-  cd my-project
-```
+## Installation
 
 Installer les dépendances :
 
@@ -67,7 +55,7 @@ Démarrer le serveur local :
   npm run dev
 ```
 
-Tester le projet en mode "build" :
+Construire et tester le projet en mode "build" :
 
 ```bash
   npm run build & npx http-server dist
