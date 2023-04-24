@@ -1,7 +1,7 @@
 
 # Vue Memory
 
-L'objectif de ce projet était de concevoir et développer une application de mémorisation basée sur la répétition espacée en utilisant Vue 3, vue-router et Pinia. Nous avons également décidé d'utiliser Tailwind en tant que framework CSS.
+L'objectif de ce projet était de concevoir et développer une application de mémorisation basée sur la répétition espacée en utilisant Vue 3, vue-router et Pinia. Nous utilisons Vite ainsi que son plugin Vite PWA pour faire nos tests en local et tester le projet en mode "build" avec le service-worker. Nous avons également décidé d'utiliser Tailwind en tant que framework CSS.
 
 Le principe de la répétition espacée est détaillé ici :
 https://ncase.me/remember/fr.html
@@ -38,7 +38,7 @@ src/
 - L'utilisateur peut choisir le nombre de niveaux et de nouvelles cartes vues chaque jour pour chaque thème.
 - La révision commence par le niveau le plus haut avec le nombre de nouvelles cartes choisies, puis niveau 1.
 - L'application peut configurer un rappel quotidien si l'utilisateur accepte les notifications du navigateur.
-- L'application est responsive et fonctionne hors-ligne.
+- L'application est responsive et fonctionne hors-ligne en mode "build".
 
 
 ## Tester le projet en local
@@ -46,7 +46,7 @@ src/
 Cloner le projet :
 
 ```bash
-  git clone https://link-to-project
+  git clone [https://github.com/antonypinel/vue-memory.git]
 ```
 
 Aller au dossier contenant le projet :
